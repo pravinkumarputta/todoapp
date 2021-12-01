@@ -84,14 +84,10 @@ class _HomePageState extends State<HomePage> {
                   newIndex = newIndex - 1;
                 }
                 List<int> currentOrder = state.todoList!.map((e) => e.id!).toList();
-                print('currentOrder');
-                print(currentOrder);
                 var element = currentOrder.removeAt(oldIndex);
                 var item = state.todoList!.removeAt(oldIndex);
                 currentOrder.insert(newIndex, element);
                 state.todoList!.insert(newIndex, item);
-                print('newOrder');
-                print(currentOrder);
 
                 // save new order to db
                 _homeBloc.add(UpdateOrder(currentOrder));
